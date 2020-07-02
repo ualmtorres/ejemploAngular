@@ -10,11 +10,28 @@ import { ROUTES } from './app.routes';
 import { EmployeesService } from './services/employees.service';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { PostsService } from './services/posts.service';
+import { PostsComponent } from './components/posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, NavbarComponent, EmployeesComponent, EmployeeComponent],
-  imports: [BrowserModule, RouterModule.forRoot(ROUTES, { useHash: true })],
-  providers: [EmployeesService],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    NavbarComponent,
+    EmployeesComponent,
+    EmployeeComponent,
+    PostsComponent,
+    CommentsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(ROUTES, { useHash: true }),
+    HttpClientModule,
+  ],
+  providers: [EmployeesService, PostsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
